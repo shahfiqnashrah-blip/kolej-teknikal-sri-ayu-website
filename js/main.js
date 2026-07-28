@@ -21,6 +21,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Hero background slideshow (homepage only)
+  var heroSlides = document.querySelectorAll(".hero-slides .hero-slide");
+  if (heroSlides.length > 1) {
+    var currentSlide = 0;
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduceMotion) {
+      setInterval(function () {
+        heroSlides[currentSlide].classList.remove("active");
+        currentSlide = (currentSlide + 1) % heroSlides.length;
+        heroSlides[currentSlide].classList.add("active");
+      }, 5000);
+    }
+  }
+
   // Enquiry form (static site placeholder — see note in Hubungi Kami page)
   var enquiryForm = document.getElementById("enquiryForm");
   if (enquiryForm) {
