@@ -336,6 +336,8 @@ nav.main-nav > ul > li:hover .dropdown { opacity: 1; visibility: visible; transf
 .org-card-leader.tier-1 .org-person { color: var(--white); }
 
 .org-staff-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.org-staff-grid.center { display: flex; flex-wrap: wrap; justify-content: center; }
+.org-staff-grid.center .org-card-staff { flex: 0 1 220px; }
 .org-card-staff {
   display: flex; align-items: center; gap: 11px; background: var(--white); border: 1px solid var(--border);
   border-radius: var(--radius); padding: 11px 13px;
