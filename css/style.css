@@ -330,12 +330,12 @@ nav.main-nav > ul > li:hover .dropdown { opacity: 1; visibility: visible; transf
 }
 .org-card-leader.tier-1 { background: var(--ink); border-color: var(--ink); border-top-color: var(--gold); }
 .org-avatar-lg {
-  width: 60px; height: 60px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  width: 76px; height: 76px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
   background: var(--ink); color: var(--gold); display: flex; align-items: center; justify-content: center;
-  font-family: 'Archivo Black', sans-serif; font-size: 1rem;
+  font-family: 'Archivo Black', sans-serif; font-size: 1.2rem;
 }
 .org-card-leader.tier-1 .org-avatar-lg { background: var(--gold); color: var(--ink); }
-.org-avatar-lg img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
+.org-avatar-lg img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
 .org-card-leader .org-info { min-width: 0; }
 .org-card-leader .org-role {
   font-family: 'Archivo Black', sans-serif; font-size: 0.68rem; color: var(--gold-dark);
@@ -345,6 +345,19 @@ nav.main-nav > ul > li:hover .dropdown { opacity: 1; visibility: visible; transf
 .org-card-leader .org-person { font-size: 0.98rem; font-weight: 800; color: var(--ink); line-height: 1.3; }
 .org-card-leader.tier-1 .org-person { color: var(--white); }
 
+/* Ahli Lembaga Pengarah — largest, most prestigious treatment */
+.org-card-leader.board {
+  flex: 1 1 300px; min-width: 280px; max-width: 380px; padding: 24px 26px; gap: 20px;
+}
+.org-avatar-board {
+  width: 110px; height: 138px; border-radius: 10px; overflow: hidden; flex-shrink: 0;
+  background: var(--gold); color: var(--ink); display: flex; align-items: center; justify-content: center;
+  font-family: 'Archivo Black', sans-serif; font-size: 1.5rem; box-shadow: 0 4px 14px rgba(11,11,12,0.25);
+}
+.org-avatar-board img { width: 100%; height: 100%; object-fit: cover; object-position: center 16%; }
+.org-card-leader.board .org-role { font-size: 0.76rem; margin-bottom: 7px; }
+.org-card-leader.board .org-person { font-size: 1.12rem; }
+
 .org-staff-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
 .org-staff-grid.center { display: flex; flex-wrap: wrap; justify-content: center; }
 .org-staff-grid.center .org-card-staff { flex: 0 1 220px; }
@@ -353,9 +366,9 @@ nav.main-nav > ul > li:hover .dropdown { opacity: 1; visibility: visible; transf
   border-radius: var(--radius); padding: 11px 13px;
 }
 .org-avatar-sm {
-  width: 36px; height: 36px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  width: 42px; height: 42px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
   background: var(--ink); color: var(--gold); display: flex; align-items: center; justify-content: center;
-  font-family: 'Archivo Black', sans-serif; font-size: 0.62rem;
+  font-family: 'Archivo Black', sans-serif; font-size: 0.68rem;
 }
 .org-avatar-sm img { width: 100%; height: 100%; object-fit: cover; }
 .org-card-staff .org-info { min-width: 0; }
@@ -387,6 +400,7 @@ nav.main-nav > ul > li:hover .dropdown { opacity: 1; visibility: visible; transf
 @media (max-width: 760px) {
   .org-panel { padding: 26px 20px; }
   .org-card-leader { flex: 1 1 100%; max-width: none; }
+  .org-avatar-board { width: 88px; height: 110px; }
 }
 
 /* Contact */
