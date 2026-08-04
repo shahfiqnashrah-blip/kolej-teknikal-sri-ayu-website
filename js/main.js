@@ -35,17 +35,40 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Enquiry form (static site placeholder — see note in Hubungi Kami page)
+  // Enquiry form — submits to Google Sheets via Apps Script Web App
   var enquiryForm = document.getElementById("enquiryForm");
   if (enquiryForm) {
+    var ENQUIRY_ENDPOINT = "https://script.google.com/macros/s/AKfycbwpiNZp_hffxRYZ732Wl7Yz6uTrN2_yGhAHy79iuSWeOnWUI6-HSZ-mpGj_zk9uA__H/exec";
     enquiryForm.addEventListener("submit", function (e) {
       e.preventDefault();
-      var successBox = document.getElementById("formSuccess");
-      if (successBox) {
-        successBox.style.display = "block";
-        enquiryForm.reset();
-        successBox.scrollIntoView({ behavior: "smooth", block: "center" });
+      var submitBtn = enquiryForm.querySelector('button[type="submit"]');
+      var originalBtnText = submitBtn ? submitBtn.textContent : "";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Menghantar...";
       }
+      fetch(ENQUIRY_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        body: new FormData(enquiryForm)
+      })
+        .then(function () {
+          var successBox = document.getElementById("formSuccess");
+          if (successBox) {
+            successBox.style.display = "block";
+            successBox.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+          enquiryForm.reset();
+        })
+        .catch(function () {
+          alert("Maaf, berlaku ralat semasa menghantar borang. Sila cuba lagi atau hubungi kami terus melalui telefon/e-mel.");
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+          }
+        });
     });
   }
 });
